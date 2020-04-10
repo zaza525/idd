@@ -21,20 +21,23 @@ class FunctionsClosuresViewController: UIViewController {
     }
     
     // Write a function called updateIntegerWithFunction which takes an integer parameter and returns an updated integer (how you update is your choice)
-    // YOUR CODE HERE
+    func updateIntegerWithFunction(n: Int) -> Int {
+        return n + 1
+    }
     
     // Write a closure called updateIntegerWithClosure which takes an integer parameter and returns an updated integer (how you update is your choice)
-    // YOUR CODE HERE
-    
+    let updateIntegerWithClosure: (Int) -> Int = {n in
+        return n + 5
+    }
     @IBAction func updateWithFunction(_ sender: Any) {
         // YOUR CODE HERE: Update integerToDisplay with the function you wrote
-
+        integerToDisplay = updateIntegerWithFunction(n: integerToDisplay)
         label.text = "\(integerToDisplay)"
     }
     
     @IBAction func updateWithClosure(_ sender: Any) {
         // YOUR CODE HERE: Update integerToDisplay with the closure you wrote
-
+        integerToDisplay = updateIntegerWithClosure(integerToDisplay)
         label.text = "\(integerToDisplay)"
     }
     

@@ -24,10 +24,16 @@ class Animal {
 
 class Dog: Animal {
     // YOUR CODE HERE: Define custom behavior for speak!
+    override func speak() -> String {
+        return "Woof Woof Woof I am a dog!"
+    }
 }
 
 class Cat: Animal {
     // YOUR CODE HERE: Define custom behavior for speak!
+    override func speak() -> String {
+        return "Meow Meow Meow I am a cat!"
+    }
 }
 
 class ClassesViewController: UIViewController {
@@ -46,18 +52,24 @@ class ClassesViewController: UIViewController {
     // Set animal var defined above viewDidLoad to a new instance of a dog
     @IBAction func dogSelected(_ sender: Any) {
         // YOUR CODE HERE
+        animal = Dog(species: "Golden Retriever", name: "Wilfurd")
        
     }
     
     // Set animal var defined above viewDidLoad to a new instance of a cat
     @IBAction func catSelected(_ sender: Any) {
         // YOUR CODE HERE
-
+        animal = Cat(species: "Grey/Black feline", name: "Meowtwo")
     }
     
     // Update the speakLabel.text property to the result of animal.speak()
     @IBAction func speakPressed(_ sender: Any) {
         // YOUR CODE HERE
+        if let pet = animal {
+            speakLabel.text = pet.speak()
+        } else {
+            speakLabel.text = "No animal has been selected"
+        }
        
     }
 }
